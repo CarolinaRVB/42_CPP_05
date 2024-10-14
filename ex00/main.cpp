@@ -6,7 +6,7 @@
 /*   By: crebelo- <crebelo-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 14:31:41 by crebelo-          #+#    #+#             */
-/*   Updated: 2024/10/14 21:05:10 by crebelo-         ###   ########.fr       */
+/*   Updated: 2024/10/14 21:27:26 by crebelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ void handler(Bureaucrat& bureaucrat, bool increment) {
 	try
 	{
 		std::cout << "New Bureaucrat\n";
-		
 		std::cout << "Bureaucrat's name: " << bureaucrat.getName() << std::endl;
 		std::cout << "Bureaucrat's initial grade: " << bureaucrat.getGrade() << std::endl;
 		
@@ -45,10 +44,28 @@ int main() {
 	Bureaucrat	personTest1 = personHigh;
 	Bureaucrat	personTest2(personLow);
 	Bureaucrat	personTest3;
+
+	try {
+		std::cout << "\nTesting invalid constructor" << "\n";
+		Bureaucrat tooHigh("test", 0);
+	}
+	catch (const Bureaucrat::GradeTooHighException& e) {
+		std::cerr << e.what() << '\n';
+	}
+
+	try {
+		std::cout << "\nTesting invalid constructor" << "\n";
+		Bureaucrat tooLow("test", 151);
+	}
+	catch (const Bureaucrat::GradeTooLowException& e) {
+		std::cerr << e.what() << '\n';
+	}
+	
+	std::cout << "\n";
 	personTest3 = personLow;
 	std::cout << "\n";
 	
-	std::cout << "Testing operator << overloader:" << "\n";
+	std::cout << "Testing operator '<<' overloader:" << "\n";
 	std::cout << personHigh;
 	std::cout << personLow;
 	std::cout << "\n";

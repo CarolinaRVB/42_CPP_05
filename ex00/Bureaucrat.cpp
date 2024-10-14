@@ -6,7 +6,7 @@
 /*   By: crebelo- <crebelo-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 14:31:20 by crebelo-          #+#    #+#             */
-/*   Updated: 2024/10/14 20:59:29 by crebelo-         ###   ########.fr       */
+/*   Updated: 2024/10/14 21:24:55 by crebelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,16 @@ Bureaucrat::Bureaucrat() : _name("Default"), _grade(1) {
 
 Bureaucrat::Bureaucrat(const Bureaucrat& bureaucrat)  : _name(bureaucrat._name), _grade(bureaucrat._grade) {
 	std::cout << "Bureaucrat: copy constructor called\n";
-	
 }
 
-Bureaucrat::Bureaucrat(std::string const& name, unsigned int grade) : _name(name), _grade(grade) {
+Bureaucrat::Bureaucrat(std::string const& name, unsigned int grade) : _name(name) {
+	if (grade < 1)
+		throw GradeTooHighException();
+	if (grade > 150)
+		throw GradeTooLowException();
+	else
+		_grade = grade;
+
 	std::cout << "Bureaucrat: name constructor called\n";
 }
 
