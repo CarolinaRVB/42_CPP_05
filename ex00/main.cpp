@@ -6,51 +6,62 @@
 /*   By: crebelo- <crebelo-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 14:31:41 by crebelo-          #+#    #+#             */
-/*   Updated: 2024/10/14 19:34:28 by crebelo-         ###   ########.fr       */
+/*   Updated: 2024/10/14 21:05:10 by crebelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
-int main() {
+void handler(Bureaucrat& bureaucrat, bool increment) {
+	
+	try
 	{
-		try
-		{
-			std::cout << "Bureaucrat whose grade will be too high:\n";
-			Bureaucrat	personHigh("Person", 2);
-			
-			std::cout << "Bureaucrat's name: " << personHigh.getName() << std::endl;
-			std::cout << "Bureaucrat's initial grade: " << personHigh.getGrade() << std::endl;
-			personHigh.incrementGrade();
-			personHigh.incrementGrade();
+		std::cout << "New Bureaucrat\n";
+		
+		std::cout << "Bureaucrat's name: " << bureaucrat.getName() << std::endl;
+		std::cout << "Bureaucrat's initial grade: " << bureaucrat.getGrade() << std::endl;
+		
+		if (increment) {
+			bureaucrat.incrementGrade();
+			bureaucrat.incrementGrade();
 		}
-		catch(const Bureaucrat::GradeTooHighException& e) {
-			std::cerr << e.what() << '\n';
-		}
-		catch(const Bureaucrat::GradeTooLowException& e) {
-			std::cerr << e.what() << '\n';
+		else {
+			bureaucrat.decrementGrade();
+			bureaucrat.decrementGrade();
 		}
 	}
-
-		{
-		try
-		{
-			std::cout << "\nBureaucrat whose grade will be too low:\n";
-			
-			Bureaucrat	personLow("Person", 149);
-
-			std::cout << "Bureaucrat's name: " << personLow.getName() << std::endl;
-			std::cout << "Bureaucrat's initial grade: " << personLow.getGrade() << std::endl;
-			personLow.decrementGrade();
-			personLow.decrementGrade();
-		}
-		catch(const Bureaucrat::GradeTooHighException& e) {
-			std::cerr << e.what() << '\n';
-		}
-		catch(const Bureaucrat::GradeTooLowException& e) {
-			std::cerr << e.what() << '\n';
-		}
+	catch(const Bureaucrat::GradeTooHighException& e) {
+		std::cerr << e.what() << '\n';
 	}
+	catch(const Bureaucrat::GradeTooLowException& e) {
+		std::cerr << e.what() << '\n';
+	}
+}
 
+
+int main() {
+	Bureaucrat	personHigh("PersonHigh", 2);
+	Bureaucrat	personLow("PersonLow", 149);
+	Bureaucrat	personTest1 = personHigh;
+	Bureaucrat	personTest2(personLow);
+	Bureaucrat	personTest3;
+	personTest3 = personLow;
+	std::cout << "\n";
+	
+	std::cout << "Testing operator << overloader:" << "\n";
+	std::cout << personHigh;
+	std::cout << personLow;
+	std::cout << "\n";
+
+	std::cout << personTest1.getName() << " is a copy from personHigh" << std::endl; 
+	std::cout << personTest2.getName() << " is a copy from personLow" << std::endl; 
+	
+	std::cout << "\n";
+	
+	handler(personHigh, true);
+	std::cout << "\n";
+	handler(personLow, false);
+
+	std::cout << "\n";
 	return 0;
 }
