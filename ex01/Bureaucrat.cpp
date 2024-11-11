@@ -6,7 +6,7 @@
 /*   By: crebelo- <crebelo-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 14:31:20 by crebelo-          #+#    #+#             */
-/*   Updated: 2024/10/17 23:22:35 by crebelo-         ###   ########.fr       */
+/*   Updated: 2024/11/11 09:48:42 by crebelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,17 @@ std::string const Bureaucrat::getName() const {
 
 int Bureaucrat::getGrade() const {
 	return (_grade);
+}
+
+void	Bureaucrat::signForm(Form *form) {
+	if (_grade <= form->getGradeSign())
+	{
+		if (!form->getSigned())
+			std::cout << this->_name << " signed " << form->getName() << std::endl;
+		form->beSigned(*this);
+	}
+	else
+		std::cout << this->_name << " couldn't sign " << form->getName() << " because grade is too low" << std::endl;		
 }
 
 void Bureaucrat::incrementGrade() {
