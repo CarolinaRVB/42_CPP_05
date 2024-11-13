@@ -6,7 +6,7 @@
 /*   By: crebelo- <crebelo-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 14:31:41 by crebelo-          #+#    #+#             */
-/*   Updated: 2024/11/11 13:14:07 by crebelo-         ###   ########.fr       */
+/*   Updated: 2024/11/13 05:50:53 by crebelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,35 +18,65 @@
 int main() {
 	std::cout << YELLOW;
 
-	// Create Bureaucrats with different grades
-	Bureaucrat personHigh("PersonHigh", 2);   // High-ranking bureaucrat
-	Bureaucrat personLow("PersonLow", 149);   // Low-ranking bureaucrat
+	Bureaucrat				personHigh("PersonHigh", 2);
+	Bureaucrat				personLow("PersonLow", 149);
+	Bureaucrat				personAdmin("Admin", 1);
 
-	std::cout << RESET << "\n";
-	std::cout << GREEN;
-
-	// Create ShrubberyCreationForm with a target (e.g., a file name)
-	ShrubberyCreationForm form1("Home");
+	ShrubberyCreationForm	shrub_form("Home");
+	RobotomyRequestForm		robo_form("Robo");
+	PresidentialPardonForm	presidential_form("President");
 	
-	// Try signing the form with the high-ranking bureaucrat
-	// try {
-	// 	personHigh.signForm(form1);
-	// } catch (const std::exception &e) {
-	// 	std::cerr << "Exception: " << e.what() << std::endl;
-	// }
+	std::cout << RESET << "\n" BLUE;
+	// std::cout << "Calling the Robotomy copy constructor: \n" YELLOW;
+	// RobotomyRequestForm	robo_copy_form(robo_form);
+	// std::cout << GREEN << robo_copy_form << "\n" BLUE;
 
-	// Try executing the form with both bureaucrats
-	try {
-		std::cout << "\nExecuting form with PersonHigh:" << std::endl;
-		form1.execute(personHigh);  // Should succeed
-
-		std::cout << "\nExecuting form with PersonLow:" << std::endl;
-		form1.execute(personLow);   // Should fail due to grade requirement
-	} catch (const std::exception &e) {
-		std::cerr << "Exception: " << e.what() << std::endl;
+	{
+		try {
+			std::cout << "Signing form to test the execute method\n" BLUE;
+			robo_form.beSigned(personAdmin);
+			
+			std::cout << "Trying to execute Robo's execute method with valid Bureau: \n" GREEN;
+			robo_form.execute(personHigh);
+			std::cout << BLUE "\nTrying to execute Robo's execute method with invalid Bureau: \n" GREEN;
+			robo_form.execute(personLow);
+						
+		} catch (const std::exception &e) {
+			std::cerr << "Exception: " << e.what() << std::endl;
+		}
 	}
 
-	std::cout << RESET;
+	{	
+		try {
+			std::cout << "Signing form to test the execute method\n" BLUE;
+			shrub_form.beSigned(personAdmin);
+			
+			std::cout << "Trying to execute Shrub's execute method with valid Bureau: \n" GREEN;
+			shrub_form.execute(personHigh);
+			std::cout << BLUE "\nTrying to execute Shrub's execute method with invalid Bureau: \n" GREEN;
+			shrub_form.execute(personLow);
+						
+		} catch (const std::exception &e) {
+			std::cerr << "Exception: " << e.what() << std::endl;
+		}
+	}
+
+	{	
+		try {
+			std::cout << "Signing form to test the execute method\n" BLUE;
+			presidential_form.beSigned(personAdmin);
+			
+			std::cout << "Trying to execute Presidential's execute method with valid Bureau: \n" GREEN;
+			presidential_form.execute(personHigh);
+			std::cout << BLUE "\nTrying to execute Presidential's execute method with invalid Bureau: \n" GREEN;
+			presidential_form.execute(personLow);
+						
+		} catch (const std::exception &e) {
+			std::cerr << "Exception: " << e.what() << std::endl;
+		}
+	}
+
+	std::cout << YELLOW;
 
 	return 0;
 }

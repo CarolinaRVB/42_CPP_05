@@ -6,7 +6,7 @@
 /*   By: crebelo- <crebelo-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 14:31:41 by crebelo-          #+#    #+#             */
-/*   Updated: 2024/10/14 21:27:26 by crebelo-         ###   ########.fr       */
+/*   Updated: 2024/11/13 04:54:54 by crebelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int main() {
 		std::cout << "\nTesting invalid constructor" << "\n";
 		Bureaucrat tooHigh("test", 0);
 	}
-	catch (const Bureaucrat::GradeTooHighException& e) {
+	catch (const std::exception& e) {
 		std::cerr << e.what() << '\n';
 	}
 
@@ -57,7 +57,7 @@ int main() {
 		std::cout << "\nTesting invalid constructor" << "\n";
 		Bureaucrat tooLow("test", 151);
 	}
-	catch (const Bureaucrat::GradeTooLowException& e) {
+	catch (const std::exception& e) {
 		std::cerr << e.what() << '\n';
 	}
 	
