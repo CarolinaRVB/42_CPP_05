@@ -6,7 +6,7 @@
 /*   By: crebelo- <crebelo-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 22:08:50 by crebelo-          #+#    #+#             */
-/*   Updated: 2024/11/11 09:47:44 by crebelo-         ###   ########.fr       */
+/*   Updated: 2024/11/14 08:06:14 by crebelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ Form::Form() : _name("DefaultForm"), _signed(false), _gradeSign(1), _gradeExec(1
 
 Form::Form(const Form& form)  : _name(form._name), _signed(form._signed),
 								 _gradeSign(form._gradeSign), _gradeExec(form._gradeExec) {
-	
 	std::cout << "Form: copy constructor called\n";
 }
 
@@ -47,17 +46,16 @@ Form& Form::operator=(const Form& form) {
 	_gradeSign = form._gradeSign;
 	_gradeExec = form._gradeExec;
 
-	
 	std::cout << "Form: copy assignement constructor called\n";
 	return *this;
 }
 
 const char* Form::GradeTooHighException::what(void) const throw() {
-	return ("Form grade is too high!");
+	return ("Grade to sign form is too high!");
 }
 
 const char* Form::GradeTooLowException::what(void) const throw() {
-	return ("Form grade is too low!");
+	return ("Grade to sign form is too low!");
 }
 
 std::string const Form::getName() const {
@@ -85,7 +83,7 @@ void	Form::beSigned(Bureaucrat &bureaucrat) {
 			_signed = true;
 	}
 	else
-		throw GradeTooHighException();
+		throw GradeTooLowException();
 }
 
 std::ostream &operator<<(std::ostream& out, const Form& form) {
