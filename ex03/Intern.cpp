@@ -6,7 +6,7 @@
 /*   By: crebelo- <crebelo-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 05:54:27 by crebelo-          #+#    #+#             */
-/*   Updated: 2024/11/13 08:30:27 by crebelo-         ###   ########.fr       */
+/*   Updated: 2024/11/14 08:16:52 by crebelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ Intern::Intern(const Intern& intern) {
 }
 
 Intern& Intern::operator=(const Intern& intern) {
+	(void)intern;
 	return (*this);
 }
 
@@ -32,7 +33,7 @@ int getAsciiCode(const std::string name) {
 	int sum = 0;
 	
 	for (size_t i = 0; i < name.size(); i++) {
-		sum += static_cast<int>(name[i]);
+		sum += name[i];
 	}
 	return sum;
 }
