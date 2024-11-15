@@ -6,7 +6,7 @@
 #    By: crebelo- <crebelo-@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/14 14:14:43 by crebelo-          #+#    #+#              #
-#    Updated: 2024/10/17 23:08:38 by crebelo-         ###   ########.fr        #
+#    Updated: 2024/11/15 09:08:32 by crebelo-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,7 @@ $(OBJ): %.o: %.cpp
 	$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME): $(OBJ)
-	@echo "$(GREEN) Compiling ex00 ... "
+	@echo "$(GREEN) Compiling ex01 ... "
 	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
 	@echo "$(GREEN) Done! "
 
