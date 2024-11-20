@@ -6,7 +6,7 @@
 /*   By: crebelo- <crebelo-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 22:08:50 by crebelo-          #+#    #+#             */
-/*   Updated: 2024/11/14 08:06:14 by crebelo-         ###   ########.fr       */
+/*   Updated: 2024/11/20 10:36:16 by crebelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,16 +22,12 @@ Form::Form(const Form& form)  : _name(form._name), _signed(form._signed),
 }
 
 Form::Form(std::string const& name, bool sign, const int gradeSign, const int gradeExec)
-			 :_name(name), _signed(sign) {
+			 :_name(name), _signed(sign), _gradeSign(gradeSign), _gradeExec(gradeExec) {
 	
 	if (gradeSign < 1 || gradeExec < 1)
 		throw GradeTooHighException();
 	if (gradeSign > 150 || gradeExec > 150)
 		throw GradeTooLowException();
-	else {
-		_gradeSign = gradeSign;
-		_gradeExec = gradeExec;
-	}
 	std::cout << "Form: name constructor called\n";
 }
 
@@ -43,19 +39,16 @@ Form& Form::operator=(const Form& form) {
 	if (this == &form) return (*this);
 	
 	_signed = form._signed;
-	_gradeSign = form._gradeSign;
-	_gradeExec = form._gradeExec;
-
 	std::cout << "Form: copy assignement constructor called\n";
 	return *this;
 }
 
 const char* Form::GradeTooHighException::what(void) const throw() {
-	return ("Grade to sign form is too high!");
+	return ("Grade is too high!");
 }
 
 const char* Form::GradeTooLowException::what(void) const throw() {
-	return ("Grade to sign form is too low!");
+	return ("Grade is too low!");
 }
 
 std::string const Form::getName() const {

@@ -6,11 +6,16 @@
 /*   By: crebelo- <crebelo-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 10:45:28 by crebelo-          #+#    #+#             */
-/*   Updated: 2024/11/13 05:43:08 by crebelo-         ###   ########.fr       */
+/*   Updated: 2024/11/20 10:53:57 by crebelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ShrubberyCreationForm.hpp"
+
+/*
+	All of them can only take one parameter in their constructor: target,
+	therefore the copy constructor and the default constructor should be removed?
+*/
 
 // ShrubberyCreationForm::ShrubberyCreationForm() : AForm("ShrubberyForm", false, 145, 137), _target("Default") {
 // 	std::cout << "ShrubberyCreationForm: default constructor called\n";

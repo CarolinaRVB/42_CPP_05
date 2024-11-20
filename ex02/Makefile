@@ -6,7 +6,7 @@
 #    By: crebelo- <crebelo-@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/14 14:14:43 by crebelo-          #+#    #+#              #
-#    Updated: 2024/11/15 09:08:41 by crebelo-         ###   ########.fr        #
+#    Updated: 2024/11/20 07:35:10 by crebelo-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ OBJ := $(SRC:.cpp=.o)
 
 CC := c++
 
-CFLAGS := -Wall -Wextra -Werror -Wshadow -Wno-shadow -std=c++98
+CFLAGS := -Wall -Wextra -Werror -std=c++98
 
 GREEN := \033[0;32m
 

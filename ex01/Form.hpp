@@ -6,7 +6,7 @@
 /*   By: crebelo- <crebelo-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 22:08:54 by crebelo-          #+#    #+#             */
-/*   Updated: 2024/11/13 05:18:45 by crebelo-         ###   ########.fr       */
+/*   Updated: 2024/11/20 10:18:46 by crebelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ class Form
 	private:
 		const std::string   _name;
 		bool                _signed;
-		int        			_gradeSign;
-		int        			_gradeExec;
+		const int        	_gradeSign;
+		const int        	_gradeExec;
 		
 	public:
 		Form();
@@ -41,14 +41,6 @@ class Form
 
 		void	beSigned(Bureaucrat& bureaucrat);
 
-		/*
-			Custom exceptions that inherit from the std::exception and override the
-			what() method.
-			In our main, thanks to polymorphism we can simply call the std::exception block as &e
-			and it will call the respective overridden what() methods from either GradeTooHigh
-			or GradeTooLow
-		*/
-	
 		class GradeTooHighException : public std::exception {
 			public:
 				const char *what() const throw();

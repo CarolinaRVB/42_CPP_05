@@ -6,7 +6,7 @@
 /*   By: crebelo- <crebelo-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 14:14:40 by crebelo-          #+#    #+#             */
-/*   Updated: 2024/11/07 08:24:29 by crebelo-         ###   ########.fr       */
+/*   Updated: 2024/11/20 10:17:20 by crebelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,11 @@ class Bureaucrat {
 		~Bureaucrat();
 		
 		std::string const getName() const;
-		int getGrade() const;
+		int 	getGrade() const;
 		void	signForm(Form *form);		// Added this 
 		
-		void incrementGrade();
-		void decrementGrade();
+		void 	incrementGrade();
+		void 	decrementGrade();
 
 		class GradeTooHighException : public std::exception {
 			public:
@@ -55,8 +55,8 @@ class Bureaucrat {
 		};
 	
 	private:
-		const std::string _name;
-		int _grade;
+		const std::string	_name;
+		int 				_grade;
 };
 
 std::ostream &operator<<(std::ostream& out, const Bureaucrat& bureaucrat);

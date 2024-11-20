@@ -6,14 +6,14 @@
 /*   By: crebelo- <crebelo-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 10:24:03 by crebelo-          #+#    #+#             */
-/*   Updated: 2024/11/13 05:42:57 by crebelo-         ###   ########.fr       */
+/*   Updated: 2024/11/20 10:48:28 by crebelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SHRUBBERYCREATIONFROM_HPP
 # define SHRUBBERYCREATIONFROM_HPP
 
-#define TREE "    *    \n" \
+#define TREE  "    *    \n" \
               "   ***   \n" \
               "  *****  \n" \
               " ******* \n" \

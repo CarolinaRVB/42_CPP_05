@@ -6,7 +6,7 @@
 /*   By: crebelo- <crebelo-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 12:13:59 by crebelo-          #+#    #+#             */
-/*   Updated: 2024/11/13 05:43:43 by crebelo-         ###   ########.fr       */
+/*   Updated: 2024/11/20 11:00:13 by crebelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ std::string	const PresidentialPardonForm::getTarget() const {
 }
 
 const char* PresidentialPardonForm::FailedToExecuteException::what(void) const throw() {
-	return ("President couldn't pardon either due to low Bureaucrat's grade or form wasn't signed\n");
+	return ("Couldn't pardon either due to low Bureaucrat's grade or form wasn't signed\n");
 }
 
 PresidentialPardonForm& PresidentialPardonForm::operator=(const PresidentialPardonForm& presidentialPardonForm) {

@@ -6,18 +6,16 @@
 /*   By: crebelo- <crebelo-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 14:31:41 by crebelo-          #+#    #+#             */
-/*   Updated: 2024/11/13 08:23:29 by crebelo-         ###   ########.fr       */
+/*   Updated: 2024/11/20 11:15:16 by crebelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "AForm.hpp"
 #include "Bureaucrat.hpp"
 #include "PresidentialPardonForm.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "Intern.hpp"
-#include "AForm.hpp"
-#include <sstream>
-
 
 int main() {
 	std::cout << YELLOW;

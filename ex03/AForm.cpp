@@ -23,16 +23,12 @@ AForm::AForm(const AForm& AForm)  : _name(AForm._name), _signed(AForm._signed),
 }
 
 AForm::AForm(std::string const& name, bool sign, const int gradeSign, const int gradeExec)
-			 :_name(name), _signed(sign) {
+			 :_name(name), _signed(sign), _gradeSign(gradeSign), _gradeExec(gradeExec) {
 	
 	if (gradeSign < 1 || gradeExec < 1)
 		throw GradeTooHighException();
 	if (gradeSign > 150 || gradeExec > 150)
 		throw GradeTooLowException();
-	else {
-		_gradeSign = gradeSign;
-		_gradeExec = gradeExec;
-	}
 	std::cout << "AForm: name constructor called\n";
 }
 
@@ -44,20 +40,17 @@ AForm& AForm::operator=(const AForm& AForm) {
 	if (this == &AForm) return (*this);
 	
 	_signed = AForm._signed;
-	_gradeSign = AForm._gradeSign;
-	_gradeExec = AForm._gradeExec;
-
 	
 	std::cout << "AForm: copy assignement constructor called\n";
 	return *this;
 }
 
 const char* AForm::GradeTooHighException::what(void) const throw() {
-	return ("Grade to sign form is too high!");
+	return ("Grade is too high!");
 }
 
 const char* AForm::GradeTooLowException::what(void) const throw() {
-	return ("Grade to sign form is too low!");
+	return ("Grade is too low!");
 }
 
 std::string const AForm::getName() const {

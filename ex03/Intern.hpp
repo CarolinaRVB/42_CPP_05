@@ -6,13 +6,13 @@
 /*   By: crebelo- <crebelo-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 05:54:29 by crebelo-          #+#    #+#             */
-/*   Updated: 2024/11/13 08:25:39 by crebelo-         ###   ########.fr       */
+/*   Updated: 2024/11/20 11:01:34 by crebelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef INTERN_HPP
 # define INTERN_HPP
-# include "AForm.hpp"
+
 # include "Bureaucrat.hpp"
 # include "PresidentialPardonForm.hpp"
 # include "ShrubberyCreationForm.hpp"

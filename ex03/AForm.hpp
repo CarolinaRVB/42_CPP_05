@@ -6,7 +6,7 @@
 /*   By: crebelo- <crebelo-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 22:08:54 by crebelo-          #+#    #+#             */
-/*   Updated: 2024/11/13 07:53:58 by crebelo-         ###   ########.fr       */
+/*   Updated: 2024/11/20 11:11:42 by crebelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ class AForm
 	private:
 		const std::string   _name;
 		bool                _signed;
-		int        			_gradeSign;
-		int        			_gradeExec;
+		const int  			_gradeSign;
+		const int  			_gradeExec;
 		
 	public:
 		AForm();
