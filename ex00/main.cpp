@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: crebelo- <crebelo-@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: crebelo- <crebelo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 14:31:41 by crebelo-          #+#    #+#             */
-/*   Updated: 2024/11/20 07:47:16 by crebelo-         ###   ########.fr       */
+/*   Updated: 2024/11/20 14:28:31 by crebelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,8 @@ void handler(Bureaucrat& bureaucrat, bool increment) {
 int main() {
 	Bureaucrat	personHigh("PersonHigh", 2);
 	Bureaucrat	personLow("PersonLow", 149);
-	Bureaucrat	personTest1 = personHigh;
+	Bureaucrat	personTest1;
+	personTest1 = personHigh;
 	Bureaucrat	personTest2(personLow);
 	Bureaucrat	personTest3;
 
@@ -68,6 +69,7 @@ int main() {
 	std::cout << "Testing operator '<<' overloader:" << "\n";
 	std::cout << personHigh;
 	std::cout << personLow;
+	std::cout << personTest3;
 	std::cout << "\n";
 
 	std::cout << personTest1.getName() << " is a copy from personHigh" << std::endl; 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: crebelo- <crebelo-@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: crebelo- <crebelo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 14:31:41 by crebelo-          #+#    #+#             */
-/*   Updated: 2024/11/20 11:15:16 by crebelo-         ###   ########.fr       */
+/*   Updated: 2024/11/20 15:01:08 by crebelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,30 +26,29 @@ int main() {
 	AForm* fail;
 
 	std::cout << "\n" GREEN;
-	{
-		try {
-			r = someRandomIntern.makeForm("robotomy request", "Bender");
-			std::cout << *r << std::endl;
-			s = someRandomIntern.makeForm("shrubbery request", "Shrub");
-			std::cout << *s << std::endl;
-			p = someRandomIntern.makeForm("presidential request", "President");
-			std::cout << *p << std::endl;
-		}
-		catch (std::exception &e) {
-			std::cerr << "Exception: " << e.what() << "\n";
-		}
+
+	try {
+		r = someRandomIntern.makeForm("robotomy request", "Bender");
+		std::cout << *r << std::endl;
+		s = someRandomIntern.makeForm("shrubbery request", "Shrub");
+		std::cout << *s << std::endl;
+		p = someRandomIntern.makeForm("presidential request", "President");
+		std::cout << *p << std::endl;
 	}
-	{
-		try {
-			fail = someRandomIntern.makeForm("invalid request", "Bender");
-			if (fail)
-				std::cout << *fail << std::endl;
-		}
-		catch (std::exception &e) {
-			std::cerr << "Exception: " << e.what() << "\n";
-		}
+	catch (std::exception &e) {
+		std::cerr << "Exception: " << e.what() << "\n";
 	}
-	
+
+
+	try {
+		fail = someRandomIntern.makeForm("invalid request", "Bender");
+		if (fail)
+			std::cout << *fail << std::endl;
+	}
+	catch (std::exception &e) {
+		std::cerr << "Exception: " << e.what() << "\n";
+	}
+
 	std::cout << "\n" YELLOW;
 	delete r;
 	delete s;

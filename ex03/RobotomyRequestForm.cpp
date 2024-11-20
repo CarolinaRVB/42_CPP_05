@@ -3,23 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   RobotomyRequestForm.cpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: crebelo- <crebelo-@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: crebelo- <crebelo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 12:07:51 by crebelo-          #+#    #+#             */
-/*   Updated: 2024/11/13 05:43:25 by crebelo-         ###   ########.fr       */
+/*   Updated: 2024/11/20 14:49:53 by crebelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RobotomyRequestForm.hpp"
 
-// RobotomyRequestForm::RobotomyRequestForm() : AForm("RobotomyForm", false, 72, 45), _target("Default") {
-// 	std::cout << "RobotomyRequestForm: default constructor called\n";
-// }
-
-// RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm& robotomyRequestForm)
-// 	: AForm(robotomyRequestForm), _target(robotomyRequestForm.getTarget()) {
-// 	std::cout << "RobotomyRequestForm: copy constructor called\n";
-// }
+RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm& robotomyRequestForm)
+	: AForm(robotomyRequestForm), _target(robotomyRequestForm.getTarget()) {
+	std::cout << "RobotomyRequestForm: copy constructor called\n";
+}
 
 RobotomyRequestForm::RobotomyRequestForm(std::string const& target) : AForm("RobotomyForm", false, 72, 45), _target(target) {
 	std::cout << "RobotomyRequestForm: name constructor called\n";
@@ -56,7 +52,7 @@ void	RobotomyRequestForm::execute(Bureaucrat const& executor) const {
 
 std::ostream &operator<<(std::ostream& out, const RobotomyRequestForm& form) {
 	out << std::boolalpha;
-		out << form.getName() << ": signed status: " << form.getSigned() << ", grade to sign: " << form.getGradeSign()
+	out << form.getName() << ": signed status: " << form.getSigned() << ", grade to sign: " << form.getGradeSign()
 		<< ", grade to execute: " << form.getGradeExec() << ", Target name: " << form.getTarget() << std::endl;
 	
 	return out;

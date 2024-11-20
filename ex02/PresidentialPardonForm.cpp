@@ -3,23 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   PresidentialPardonForm.cpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: crebelo- <crebelo-@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: crebelo- <crebelo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 12:13:59 by crebelo-          #+#    #+#             */
-/*   Updated: 2024/11/20 10:59:32 by crebelo-         ###   ########.fr       */
+/*   Updated: 2024/11/20 14:48:36 by crebelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PresidentialPardonForm.hpp"
 
-// PresidentialPardonForm::PresidentialPardonForm() : AForm("PresidentialPardonForm", false, 25, 5), _target("Default") {
-// 	std::cout << "PresidentialPardonForm: default constructor called\n";
-// }
-
-// PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& presidentialPardonForm)
-// 	: AForm(presidentialPardonForm), _target(presidentialPardonForm.getTarget()) {
-// 	std::cout << "PresidentialPardonForm: copy constructor called\n";
-// }
+PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& presidentialPardonForm)
+	: AForm(presidentialPardonForm), _target(presidentialPardonForm.getTarget()) {
+	std::cout << "PresidentialPardonForm: copy constructor called\n";
+}
 
 PresidentialPardonForm::PresidentialPardonForm(std::string const& target) : AForm("PresidentialPardonForm", false, 25, 5), _target(target) {
 	std::cout << "PresidentialPardonForm: name constructor called\n";
@@ -56,7 +52,7 @@ void	PresidentialPardonForm::execute(Bureaucrat const& executor) const {
 
 std::ostream &operator<<(std::ostream& out, const PresidentialPardonForm& form) {
 	out << std::boolalpha;
-		out << form.getName() << ": signed status: " << form.getSigned() << ", grade to sign: " << form.getGradeSign()
+	out << form.getName() << ": signed status: " << form.getSigned() << ", grade to sign: " << form.getGradeSign()
 		<< ", grade to execute: " << form.getGradeExec() << "Target name: " << form.getTarget() << std::endl;
 	
 	return out;

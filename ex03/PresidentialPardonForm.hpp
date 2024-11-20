@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PresidentialPardonForm.hpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: crebelo- <crebelo-@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: crebelo- <crebelo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 12:11:43 by crebelo-          #+#    #+#             */
-/*   Updated: 2024/11/13 05:43:33 by crebelo-         ###   ########.fr       */
+/*   Updated: 2024/11/20 14:14:51 by crebelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@ class PresidentialPardonForm: public AForm
 {
     private:
 		std::string _target;
+		PresidentialPardonForm();
 	
 	public:
-		// PresidentialPardonForm();
-		// PresidentialPardonForm(const PresidentialPardonForm& presidentialPardonForm);
+		PresidentialPardonForm(const PresidentialPardonForm& presidentialPardonForm);
 		PresidentialPardonForm(std::string const& target);
 		
 		~PresidentialPardonForm();

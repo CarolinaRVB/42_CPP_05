@@ -3,28 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   ShrubberyCreationForm.cpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: crebelo- <crebelo-@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: crebelo- <crebelo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 10:45:28 by crebelo-          #+#    #+#             */
-/*   Updated: 2024/11/20 10:53:57 by crebelo-         ###   ########.fr       */
+/*   Updated: 2024/11/20 14:48:55 by crebelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ShrubberyCreationForm.hpp"
 
-/*
-	All of them can only take one parameter in their constructor: target,
-	therefore the copy constructor and the default constructor should be removed?
-*/
-
-// ShrubberyCreationForm::ShrubberyCreationForm() : AForm("ShrubberyForm", false, 145, 137), _target("Default") {
-// 	std::cout << "ShrubberyCreationForm: default constructor called\n";
-// }
-
-// ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& shrubberyCreationForm)
-// 	: AForm(shrubberyCreationForm), _target(shrubberyCreationForm.getTarget()) {
-// 	std::cout << "ShrubberyCreationForm: copy constructor called\n";
-// }
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& shrubberyCreationForm)
+	: AForm(shrubberyCreationForm), _target(shrubberyCreationForm.getTarget()) {
+	std::cout << "ShrubberyCreationForm: copy constructor called\n";
+}
 
 ShrubberyCreationForm::ShrubberyCreationForm(std::string const& target) : AForm("ShrubberyForm", false, 145, 137), _target(target) {
 	std::cout << "ShrubberyCreationForm: name constructor called\n";
@@ -71,7 +62,7 @@ void	ShrubberyCreationForm::execute(Bureaucrat const& executor) const {
 
 std::ostream &operator<<(std::ostream& out, const ShrubberyCreationForm& form) {
 	out << std::boolalpha;
-		out << form.getName() << ": signed status: " << form.getSigned() << ", grade to sign: " << form.getGradeSign()
+	out << form.getName() << ": signed status: " << form.getSigned() << ", grade to sign: " << form.getGradeSign()
 		<< ", grade to execute: " << form.getGradeExec() << "Target name: " << form.getTarget() << std::endl;
 	
 	return out;
